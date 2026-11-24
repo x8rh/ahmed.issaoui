@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ahmed Issaoui | Portfolio étudiant</title>
+<meta name="description" content="Portfolio d’Ahmed Issaoui, étudiant en première année Sciences de Gestion à l’ISET Radès.">
+<style>
+:root{--bg:#f5f7fb;--surface:#fff;--text:#121a33;--muted:#55618a;--accent:#0a8f78;--accent2:#4455e0;--line:#dde3f0;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0b1020;--surface:#131a2f;--text:#e8ecf8;--muted:#9aa6c4;--accent:#4de0c0;--accent2:#7c8cff;--line:#243050;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1020;--surface:#131a2f;--text:#e8ecf8;--muted:#9aa6c4;--accent:#4de0c0;--accent2:#7c8cff;--line:#243050;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+body{background:var(--bg);color:var(--text);font:16px/1.65 "Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+nav{max-width:1080px;margin:auto;padding:14px 20px;display:flex;align-items:center;gap:18px}
+.logo{font-weight:800;font-size:1.2rem;letter-spacing:-.5px}.logo b{color:var(--accent)}
+.links{margin-left:auto;display:flex;gap:4px;overflow-x:auto}
+.links a{padding:6px 12px;border-radius:99px;color:var(--muted);font-size:.9rem;white-space:nowrap}
+.links a:hover{background:var(--surface);color:var(--text)}
+button{font:inherit;cursor:pointer}
+.icon{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:50%;width:38px;height:38px;flex:none}
+section{max-width:1080px;margin:auto;padding:80px 20px 20px}
+.tag{color:var(--accent);font-weight:700;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);letter-spacing:-1px;margin:6px 0 8px}
+.sub{color:var(--muted);margin-bottom:28px}
+#accueil{padding-top:90px;display:grid;gap:36px;grid-template-columns:1.3fr 1fr;align-items:center}
+h1{font-size:clamp(2.4rem,7vw,4.4rem);line-height:1.05;letter-spacing:-2px;margin:12px 0}
+h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);max-width:520px;margin-bottom:26px}
+.btn{display:inline-block;padding:12px 22px;border-radius:12px;font-weight:600;border:1px solid var(--line);background:var(--surface);color:var(--text);margin:0 8px 8px 0}
+.btn.main{background:var(--accent);color:#04201a;border-color:var(--accent)}
+.card-hero{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;gap:16px}
+.avatar{width:96px;height:96px;border-radius:24px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-size:2.4rem;font-weight:800;color:#fff}
+.stat{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px;color:var(--muted);font-size:.92rem}.stat b{color:var(--text)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.card h3{font-size:1.05rem;margin:8px 0 4px}.card p{color:var(--muted);font-size:.93rem}
+.chip{display:inline-block;font-size:.72rem;padding:2px 10px;border-radius:99px;background:var(--bg);border:1px solid var(--line);color:var(--accent)}
+.skill{margin-bottom:16px}.skill div{display:flex;justify-content:space-between;font-size:.93rem;margin-bottom:6px}
+.bar{height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 1.1s ease}
+.two{display:grid;gap:30px;grid-template-columns:1fr 1fr}
+.tl{border-left:2px solid var(--line);padding-left:20px}
+.tl div{position:relative;margin-bottom:22px}
+.tl div::before{content:"";position:absolute;left:-27px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.tl small{color:var(--accent);font-weight:700}.tl p{color:var(--muted);font-size:.93rem}
+.add{margin-top:16px;background:none;border:1px dashed var(--muted);color:var(--muted);padding:9px 16px;border-radius:12px}
+.add:hover{color:var(--accent);border-color:var(--accent)}
+form.contact{display:grid;gap:12px;max-width:560px}
+input,textarea,select{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit}
+input:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+dialog{border:1px solid var(--line);border-radius:18px;background:var(--surface);color:var(--text);padding:24px;width:min(420px,92vw)}
+dialog::backdrop{background:rgba(0,0,0,.55)}dialog form{display:grid;gap:12px}
+footer{text-align:center;color:var(--muted);padding:60px 20px 40px;font-size:.88rem}
+.rv{opacity:0;transform:translateY(22px);transition:.7s}.rv.on{opacity:1;transform:none}
+@media(max-width:760px){#accueil,.two{grid-template-columns:1fr}.links{display:none}nav{justify-content:space-between}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><nav>
+<a class="logo" href="#accueil">ahmed<b>.</b></a>
+<div class="links"><a href="#apropos">À propos</a><a href="#competences">Compétences</a><a href="#travaux">Travaux</a><a href="#projets">Projets</a><a href="#certificats">Certificats</a><a href="#contact">Contact</a></div>
+<button class="icon" id="theme" aria-label="Changer de thème">◐</button>
+</nav></header>
+
+<section id="accueil">
+<div>
+<span class="tag">Portfolio étudiant</span>
+<h1>Bonjour, je suis <span>Ahmed Issaoui</span></h1>
+<p class="lead">Étudiant en première année Sciences de Gestion à l’ISET Radès. Curieux, organisé et motivé, je présente ici mon parcours, mes travaux et mes projets.</p>
+<a class="btn main" href="#travaux">Voir mes travaux</a><a class="btn" href="#contact">Me contacter</a>
+</div>
+<div class="card-hero rv">
+<div class="avatar">AI</div>
+<div><b>Ahmed Issaoui</b><br><span style="color:var(--muted)">Sciences de Gestion · 1<sup>re</sup> année</span></div>
+<div class="stat"><span>Établissement</span><b>ISET Radès</b></div>
+<div class="stat"><span>Pays</span><b>Tunisie</b></div>
+</div>
+</section>
+
+<section id="apropos">
+<span class="tag">À propos</span><h2>Qui suis-je ?</h2>
+<div class="two">
+<div class="rv"><p style="color:var(--muted)">Je m’appelle Ahmed et je suis en première année de Sciences de Gestion. Je m’intéresse à la comptabilité, au management et à l’entrepreneuriat. Ce portfolio rassemble ce que j’apprends et ce que je réalise au fil de mes études.</p></div>
+<div class="tl rv" id="parcours"></div>
+</div>
+<button class="add" data-add="parcours">＋ Ajouter une étape</button>
+</section>
+
+<section id="competences">
+<span class="tag">Compétences</span><h2>Ce que je développe</h2>
+<p class="sub">Un aperçu de mes compétences, en progression constante.</p>
+<div class="two"><div id="skills"></div>
+<div class="card rv"><h3>Savoir-être</h3><p>Esprit d’équipe, rigueur, sens de l’organisation, adaptabilité et goût pour l’apprentissage.</p></div></div>
+<button class="add" data-add="skills">＋ Ajouter une compétence</button>
+</section>
+
+<section id="travaux">
+<span class="tag">Travaux</span><h2>Mes travaux universitaires</h2>
+<p class="sub">Devoirs, exercices, recherches et documents.</p>
+<div class="grid" id="works"></div>
+<button class="add" data-add="works">＋ Ajouter un travail</button>
+</section>
+
+<section id="projets">
+<span class="tag">Projets</span><h2>Mes projets</h2>
+<p class="sub">Exposés et projets réalisés à l’université.</p>
+<div class="grid" id="projects"></div>
+<button class="add" data-add="projects">＋ Ajouter un projet</button>
+</section>
+
+<section id="certificats">
+<span class="tag">Certificats</span><h2>Mes certificats</h2>
+<p class="sub">Formations et attestations.</p>
+<div class="grid" id="certs"></div>
+<button class="add" data-add="certs">＋ Ajouter un certificat</button>
+</section>
+
+<section id="contact">
+<span class="tag">Contact</span><h2>Me contacter</h2>
+<p class="sub">N’hésitez pas à m’écrire.</p>
+<form class="contact" id="cform">
+<input id="cn" placeholder="Votre nom" required>
+<input id="ce" type="email" placeholder="Votre e-mail" required>
+<textarea id="cm" rows="4" placeholder="Votre message" required></textarea>
+<button class="btn main" type="submit" style="margin:0">Envoyer le message</button>
+</form>
+</section>
+
+<footer>© <span id="yr"></span> Ahmed Issaoui · Portfolio étudiant · ISET Radès</footer>
+
+<dialog id="dlg"><form method="dialog" id="df">
+<h3 id="dt">Ajouter</h3>
+<input id="d1" placeholder="Titre" required>
+<textarea id="d2" rows="3" placeholder="Description"></textarea>
+<input id="d3" placeholder="Détail (matière, année, niveau 0-100…)">
+<div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn" value="cancel" formnovalidate>Annuler</button><button class="btn main" value="ok">Ajouter</button></div>
+</form></dialog>
+
+<script>
+// Contenu de départ : modifie ces listes pour personnaliser ton portfolio.
+var DATA={
+parcours:[{t:"2025 – Aujourd’hui",d:"Licence Sciences de Gestion, 1re année · ISET Radès"},{t:"2025",d:"Baccalauréat obtenu"}],
+skills:[{t:"Bureautique (Word, Excel)",d:"",x:"80"},{t:"Comptabilité de base",d:"",x:"65"},{t:"Communication orale",d:"",x:"70"},{t:"Travail en équipe",d:"",x:"85"}],
+works:[{t:"Exercices de comptabilité",d:"Séries d’exercices sur les écritures comptables.",x:"Comptabilité"},{t:"Recherche en management",d:"Document de recherche sur les fonctions de l’entreprise.",x:"Management"},{t:"Devoir de mathématiques",d:"Statistiques et calculs appliqués à la gestion.",x:"Mathématiques"}],
+projects:[{t:"Exposé : l’entreprise et son environnement",d:"Présentation orale réalisée en groupe.",x:"Exposé"},{t:"Projet : étude de marché",d:"Enquête et analyse d’un petit marché local.",x:"Projet"}],
+certs:[{t:"Attestation de formation",d:"Ajoute ici le nom de ta formation.",x:"2026"}]
+};
+var KEY="portfolio-ahmed-v1",$=function(s){return document.querySelector(s)};
+function load(){try{var s=localStorage.getItem(KEY);if(s){var o=JSON.parse(s);for(var k in o)DATA[k]=o[k]}}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(DATA))}catch(e){}}
+function esc(s){var d=document.createElement("div");d.textContent=s||"";return d.innerHTML}
+function render(){
+$("#parcours").innerHTML=DATA.parcours.map(function(i){return "<div><small>"+esc(i.t)+"</small><p>"+esc(i.d)+"</p></div>"}).join("");
+$("#skills").innerHTML=DATA.skills.map(function(i){var n=Math.max(0,Math.min(100,parseInt(i.x)||70));return '<div class="skill"><div><span>'+esc(i.t)+"</span><span>"+n+'%</span></div><div class="bar"><i data-w="'+n+'"></i></div></div>'}).join("");
+["works","projects","certs"].forEach(function(k){$("#"+k).innerHTML=DATA[k].map(function(i){return '<article class="card rv">'+(i.x?'<span class="chip">'+esc(i.x)+"</span>":"")+"<h3>"+esc(i.t)+"</h3><p>"+esc(i.d)+"</p></article>"}).join("")});
+observe()}
+var io;
+function observe(){
+if(!("IntersectionObserver" in window)){document.querySelectorAll(".rv").forEach(function(e){e.classList.add("on")});document.querySelectorAll(".bar i").forEach(function(b){b.style.width=b.dataset.w+"%"});return}
+io=io||new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");var b=e.target.querySelector?e.target.querySelectorAll(".bar i"):[];b.forEach(function(x){x.style.width=x.dataset.w+"%"});if(e.target.dataset&&e.target.dataset.w)e.target.style.width=e.target.dataset.w+"%";io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll(".rv,.skill").forEach(function(e){io.observe(e)})}
+var cur="";
+document.querySelectorAll("[data-add]").forEach(function(b){b.onclick=function(){cur=b.dataset.add;$("#dt").textContent=b.textContent.replace("＋ ","");$("#df").reset();$("#dlg").showModal()}});
+$("#df").onsubmit=function(){
+var r=document.activeElement&&document.activeElement.value;if(r==="cancel")return;
+var t=$("#d1").value.trim(),d=$("#d2").value.trim(),x=$("#d3").value.trim();if(!t)return;
+var it=cur==="skills"?{t:t,d:d,x:x}:cur==="parcours"?{t:t,d:d||x}:{t:t,d:d,x:x};
+DATA[cur].push(it);save();render()};
+$("#cform").onsubmit=function(e){e.preventDefault();
+var s=encodeURIComponent("Message depuis le portfolio – "+$("#cn").value),b=encodeURIComponent($("#cm").value+"\n\n"+$("#cn").value+" ("+$("#ce").value+")");
+location.href="mailto:ahmed@example.com?subject="+s+"&body="+b};
+$("#theme").onclick=function(){var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;r.dataset.theme=dark?"light":"dark"};
+$("#yr").textContent=new Date().getFullYear();
+load();render();
+</script>
+</body>
+</html>
